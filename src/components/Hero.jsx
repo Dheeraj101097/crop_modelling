@@ -1,10 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Leaf } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronDown, Leaf } from "lucide-react";
 
 const Hero = () => {
   const scrollToWorkflow = () => {
-    document.getElementById('workflow').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("workflow").scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -16,21 +16,21 @@ const Hero = () => {
           <motion.div
             key={i}
             className="absolute text-green-400 opacity-20"
-            initial={{ 
-              x: Math.random() * window.innerWidth, 
+            initial={{
+              x: Math.random() * window.innerWidth,
               y: window.innerHeight + 100,
-              rotate: 0 
+              rotate: 0,
             }}
-            animate={{ 
+            animate={{
               y: -100,
               rotate: 360,
-              x: Math.random() * window.innerWidth
+              x: Math.random() * window.innerWidth,
             }}
             transition={{
               duration: Math.random() * 10 + 15,
               repeat: Infinity,
               ease: "linear",
-              delay: Math.random() * 5
+              delay: Math.random() * 5,
             }}
           >
             <Leaf size={Math.random() * 20 + 15} />
@@ -45,26 +45,28 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
+          <motion.h1
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-green-800 mb-6 leading-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
             Machine Learning Powered
-            <span className="block text-yellow-600">Soybean Yield Prediction</span>
+            <span className="block text-yellow-600">
+              Soybean Yield Prediction
+            </span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl sm:text-2xl text-green-700 mb-12 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            A Hybrid Approach Combining DSSAT-Pythia and Machine Learning for 
+            A Hybrid Approach Combining DSSAT-Pythia and Machine Learning for
             Spatially Distributed Yield Estimation in Bundelkhand, India
           </motion.p>
-          
+
           <motion.button
             onClick={scrollToWorkflow}
             className="group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-12 py-4 rounded-full text-lg font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
@@ -75,7 +77,10 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             Explore Results
-            <ChevronDown className="inline-block ml-2 group-hover:animate-bounce" size={20} />
+            <ChevronDown
+              className="inline-block ml-2 group-hover:animate-bounce"
+              size={20}
+            />
           </motion.button>
         </motion.div>
       </div>

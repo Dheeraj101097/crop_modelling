@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Thermometer, Droplets, Wind } from "lucide-react";
-import Map from "./Map";
-import studymap from "../assets/Bundelkhand_Study_Points.png";
+// import Map from "./Map";
+import studymap from "../assets/AOI.png";
 
 const StudyAreaSection = () => {
   const ref = useRef(null);
@@ -24,7 +24,7 @@ const StudyAreaSection = () => {
     "Damoh",
     "Sagar",
     "Datia",
-    "Shivpuri",
+    "Niwari",
   ];
 
   const climateFeatures = [

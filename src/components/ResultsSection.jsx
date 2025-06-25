@@ -4,8 +4,28 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { TrendingUp, MapPin, Calendar, Target } from "lucide-react";
 import predvsact from "../assets/Ml_val_plot.png";
-// import wholemap from "";
+import correl from "../assets/correlation_readable.jpg";
+import boxplot from "../assets/boxplotweb.png";
+import alyr from "../assets/alyr.png";
+import table from "../assets/table.png";
 const ResultsSection = () => {
+  const data = [
+    {
+      model: "DSSAT-Pythia",
+      phase: "Calibration",
+      rmse: "146.45",
+      nrmse: "0.19",
+    },
+    {
+      model: "DSSAT-Pythia",
+      phase: "Validation",
+      rmse: "142.16",
+      nrmse: "0.20",
+    },
+    { model: "ML Model", phase: "Calibration", rmse: "146.09", nrmse: "0.186" },
+    { model: "ML Model", phase: "Validation", rmse: "143.76", nrmse: "0.201" },
+  ];
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
 
@@ -89,7 +109,7 @@ const ResultsSection = () => {
 
   return (
     <section className="py-20 bg-white" ref={ref}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container  mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -148,6 +168,69 @@ const ResultsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <motion.div
             className="bg-gradient-to-br from-green-50 to-yellow-50 p-8 rounded-3xl shadow-lg"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-semibold text-green-800 mb-6">
+              Plot of yield from 1990 - 2023
+            </h3>
+            <div className="h-64 bg-white rounded-2xl flex flex-col align-middle items-center justify-evenly border-2 border-dashed border-green-300">
+              <img src={alyr} className="h-60 w-fit" />
+              <div className="text-center text-green-600 ">
+                {/* <TrendingUp size={48} className="mx-auto mb-4 opacity-50" /> */}
+                {/* <p className="text-lg">Chart Integration Area</p> */}
+                {/* <p className="text-sm opacity-75 ">
+                  Highest-yielding (wet) year - 2018 & Lowest-yielding (dry)
+                  year - 2020
+                </p> */}
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className="bg-gradient-to-br from-green-50 to-yellow-50 p-8 rounded-3xl shadow-lg"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-semibold text-green-800 mb-6">
+              Box Plot over Calibration & Validation Period
+            </h3>
+            <div className="h-64 bg-white rounded-2xl flex flex-col align-middle items-center justify-evenly border-2 border-dashed border-green-300">
+              <img src={boxplot} className="h-48 w-fit" />
+              <div className="text-center text-green-600 ">
+                {/* <TrendingUp size={48} className="mx-auto mb-4 opacity-50" /> */}
+                {/* <p className="text-lg">Chart Integration Area</p> */}
+                <p className="text-sm opacity-75 ">
+                  Highest-yielding (wet) year - 2018 & Lowest-yielding (dry)
+                  year - 2020
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className="bg-gradient-to-br from-green-50 to-yellow-50 p-8 rounded-3xl shadow-lg"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-semibold text-green-800 mb-6">
+              Correlation between Weather parameters and Yield (kg/ha)
+            </h3>
+            <div className="h-64 bg-white rounded-2xl flex flex-col align-middle items-center justify-evenly border-2 border-dashed border-green-300">
+              <img src={correl} className="h-56 w-fit" />
+              <div className="text-center text-green-600 ">
+                {/* <TrendingUp size={48} className="mx-auto mb-4 opacity-50" /> */}
+                {/* <p className="text-lg">Chart Integration Area</p> */}
+                <p className="text-sm opacity-75">
+                  Rainfall and minimum temperature were the most influential
+                  factors
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className="bg-gradient-to-br from-green-50 to-yellow-50 p-8 rounded-3xl shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -155,13 +238,13 @@ const ResultsSection = () => {
             <h3 className="text-2xl font-semibold text-green-800 mb-6">
               Predicted vs. Actual Yield
             </h3>
-            <div className="h-64 bg-white rounded-2xl flex items-center justify-evenly border-2 border-dashed border-green-300">
+            <div className="h-64 bg-white rounded-2xl flex flex-col align-middle items-center justify-evenly border-2 border-dashed border-green-300">
               <img src={predvsact} className="h-56 w-fit" />
               <div className="text-center text-green-600 ">
-                <TrendingUp size={48} className="mx-auto mb-4 opacity-50" />
+                {/* <TrendingUp size={48} className="mx-auto mb-4 opacity-50" /> */}
                 {/* <p className="text-lg">Chart Integration Area</p> */}
                 <p className="text-sm opacity-75">
-                  R² = 0.925, RMSE = 0.34 t/ha, NRMSE =
+                  R² = 0.98, RMSE = 0.146 t/ha, NRMSE = 0.20
                 </p>
               </div>
             </div>
@@ -178,11 +261,7 @@ const ResultsSection = () => {
             </h3>
             <div className="h-64 bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-green-300">
               <div className="text-center text-green-600">
-                <Target size={48} className="mx-auto mb-4 opacity-50" />
-                <p className="text-lg">Comparative Analysis</p>
-                <p className="text-sm opacity-75">
-                  ML Model: 92.5% | DSSAT: 87.3%
-                </p>
+                <img src={table} className="h-56 w-fit" />
               </div>
             </div>
           </motion.div>

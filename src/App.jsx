@@ -6,21 +6,22 @@ import ResultsSection from "./components/ResultsSection";
 import StudyAreaSection from "./components/StudyAreaSection";
 import ContactSection from "./components/ContactSection";
 import ScrollProgress from "./components/ScrollProgress";
-import { Analytics } from "@vercel/analytics/next";
+// import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-green-50 to-yellow-50">
+      <div className="min-h-screen w-screen bg-gradient-to-b from-green-50 to-yellow-50">
         <ScrollProgress />
         <Hero />
         <WorkflowSection />
         <FeaturesSection />
         <ResultsSection />
         <StudyAreaSection />
-        {/* <ContactSection /> */}
+        <ContactSection />
       </div>
-      <Analytics />
+      <Analytics />;
     </>
   );
 }
