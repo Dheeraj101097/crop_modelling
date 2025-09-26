@@ -252,7 +252,7 @@ const Hero = () => {
             className="flex gap-4"
             animate={{ x: [`0%`, `-100%`] }}
             transition={{
-              duration: 8, // total cycle
+              duration: 16, // total cycle
               repeat: Infinity,
               ease: "linear",
             }}
